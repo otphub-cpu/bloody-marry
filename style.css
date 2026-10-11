@@ -1,0 +1,1707 @@
+/* ==========================================================================
+   DEVIL COMMAND — INFERNAL BLOOD RED THEME & OCCULT CYBER DASHBOARD
+   Blood Red Core, Flaming Demonic Accents, Deep Obsidian Abyss,
+   Sinister Glassmorphism, Floating Hellfire Embers, and Piercing Glows.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Creepster&family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@600;700;800&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    /* --- Devil Blood Red Infernal Palette --- */
+    --devil-blood-bright: #ff002b;
+    --devil-blood: #d6001f;
+    --devil-blood-deep: #8a0012;
+    --devil-blood-dark: #400008;
+    --devil-blood-abyss: #1a0003;
+    --devil-fire: #ff3b00;
+    --devil-amber: #ff8800;
+    --devil-gold: #ffaa00;
+
+    --blood-glow: rgba(255, 0, 43, 0.75);
+    --blood-glow-dim: rgba(255, 0, 43, 0.22);
+    --blood-glow-faint: rgba(255, 0, 43, 0.08);
+
+    /* --- Theme Tokens (Obsidian Void & Blood Glass) --- */
+    --bg: #030002;
+    --bg2: #090104;
+    --bg3: #120207;
+    --bg-card: rgba(18, 2, 7, 0.88);
+    --bg-card-solid: #150208;
+    --bg-elevated: #24040e;
+    --bg-input: rgba(10, 1, 4, 0.95);
+
+    /* Borders */
+    --border: rgba(255, 0, 43, 0.32);
+    --border-bright: rgba(255, 20, 50, 0.8);
+    --border-blood: #ff002b;
+    --border-gold: #ffaa00;
+
+    /* Texts */
+    --text: #fff2f4;
+    --text-2: #e2aab3;
+    --text-3: #8a5762;
+    --text-blood: #ff2a4b;
+
+    /* Status Colors */
+    --green: #00ff88;
+    --green-dim: rgba(0, 255, 136, 0.16);
+    --red: #ff002b;
+    --red-dim: rgba(255, 0, 43, 0.2);
+
+    /* Radii */
+    --r-xs: 6px;
+    --r-sm: 10px;
+    --r-md: 14px;
+    --r-lg: 20px;
+    --r-xl: 26px;
+    --r-pill: 9999px;
+
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+    --nav-height: 68px;
+    --header-height: 98px;
+    --status-height: 32px;
+
+    /* Shadows & Glows */
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(255, 0, 43, 0.06);
+    --shadow-hover: 0 10px 38px rgba(255, 0, 43, 0.4), inset 0 0 25px rgba(255, 0, 43, 0.15);
+    --shadow-blood: 0 0 25px rgba(255, 0, 43, 0.85);
+}
+
+html {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+    background: var(--bg);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    position: relative;
+    max-width: 100vw;
+}
+
+/* ==========================================================================
+   SCARY BLOOD DRIP TOP RIBBON
+   ========================================================================== */
+.blood-drip-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 16px;
+    z-index: 9999999;
+    pointer-events: none;
+    overflow: hidden;
+    filter: drop-shadow(0 2px 8px rgba(255, 0, 43, 0.9));
+}
+
+.blood-drip-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: bloodDripPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes bloodDripPulse {
+    0% { transform: scaleY(1); opacity: 0.9; }
+    50% { transform: scaleY(1.2); opacity: 1; }
+    100% { transform: scaleY(1.05); opacity: 0.95; }
+}
+
+/* ==========================================================================
+   AMBIENT HELLFIRE BACKGROUND & FLOATING BLOOD EMBERS
+   ========================================================================== */
+.ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: 
+        radial-gradient(circle at 50% 0%, rgba(180, 0, 20, 0.28) 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%, rgba(138, 0, 18, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 90% 70%, rgba(255, 59, 0, 0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, #0c0105 0%, #040002 70%, #000000 100%);
+}
+
+/* Creepy Demonic Grid Overlay */
+.ambient-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 0, 43, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 43, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.85;
+}
+
+/* Sinister Red Scanning Scanline */
+.ambient-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 43, 0.8) 50%, transparent);
+    box-shadow: 0 0 20px #ff002b, 0 0 35px #ff3b00;
+    animation: bloodSweep 7s ease-in-out infinite;
+    opacity: 0.65;
+}
+
+@keyframes bloodSweep {
+    0% { transform: translateY(0vh); opacity: 0; }
+    15% { opacity: 0.7; }
+    85% { opacity: 0.7; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Glowing Blood Orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 320px;
+    height: 320px;
+    background: #ff002b;
+    top: -80px;
+    right: -60px;
+    animation: demonOrbFloat 12s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+    width: 280px;
+    height: 280px;
+    background: #8a0012;
+    bottom: 80px;
+    left: -50px;
+    animation: demonOrbFloat 14s ease-in-out infinite alternate-reverse;
+}
+
+.orb-3 {
+    width: 240px;
+    height: 240px;
+    background: #ff3b00;
+    top: 40%;
+    left: 45%;
+    opacity: 0.25;
+    animation: demonOrbFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes demonOrbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, 40px) scale(1.2); }
+}
+
+/* Rising Embers from Hellfire */
+.ember {
+    position: absolute;
+    border-radius: 50%;
+    background: #ff2a4b;
+    box-shadow: 0 0 10px #ff002b, 0 0 20px #ff3b00;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.ember-1 { width: 4px; height: 4px; left: 15%; bottom: -10px; animation: emberRise 6s linear infinite; }
+.ember-2 { width: 5px; height: 5px; left: 35%; bottom: -10px; animation: emberRise 8s linear infinite 1.5s; }
+.ember-3 { width: 3px; height: 3px; left: 60%; bottom: -10px; animation: emberRise 7s linear infinite 3s; }
+.ember-4 { width: 6px; height: 6px; left: 80%; bottom: -10px; animation: emberRise 9s linear infinite 0.8s; }
+.ember-5 { width: 4px; height: 4px; left: 92%; bottom: -10px; animation: emberRise 7.5s linear infinite 2.2s; }
+
+@keyframes emberRise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    20% { opacity: 0.9; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(-110vh) scale(0.3); opacity: 0; }
+}
+
+/* ==========================================================================
+   STATUS BAR — Demon Telemetry
+   ========================================================================== */
+.status-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+    padding-top: calc(6px + var(--safe-top));
+    height: calc(var(--status-height) + var(--safe-top));
+    background: rgba(6, 1, 3, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-2);
+    border-bottom: 1px solid rgba(255, 0, 43, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+.status-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--devil-blood-bright);
+    border: 1.5px solid #ff99aa;
+    box-shadow: 0 0 10px var(--devil-blood-bright);
+    animation: bloodPulseDot 1.6s ease-in-out infinite;
+}
+
+.status-dot.loading {
+    background: var(--devil-gold);
+    box-shadow: 0 0 10px var(--devil-gold);
+}
+
+.status-dot.error {
+    background: #ff002b;
+    box-shadow: 0 0 12px #ff002b;
+    animation: none;
+}
+
+@keyframes bloodPulseDot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: 0.75; box-shadow: 0 0 16px #ff002b; }
+}
+
+.demonic-status-tag {
+    font-family: 'Cinzel Decorative', 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: #ff3355;
+    text-shadow: 0 0 8px rgba(255, 0, 43, 0.6);
+}
+
+.status-bar-right {
+    font-weight: 800;
+    font-family: 'Rajdhani', sans-serif;
+    color: #ffb8c4;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   APP HEADER — Devil Horned Skull Crest
+   ========================================================================== */
+.app-header {
+    position: fixed;
+    top: calc(var(--status-height) + var(--safe-top));
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    height: 68px;
+    background: rgba(10, 1, 4, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1.5px solid rgba(255, 0, 43, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 0, 43, 0.15);
+}
+
+.header-logo {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: radial-gradient(circle at 40% 40%, #28020a 0%, #120104 60%, #030002 100%);
+    border: 1.5px solid #ff002b;
+    box-shadow: 0 0 16px rgba(255, 0, 43, 0.6), inset 0 0 10px rgba(255, 0, 43, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.header-logo:hover, .header-logo:active {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(255, 0, 43, 0.9), 0 0 40px rgba(255, 59, 0, 0.6);
+    border-color: #ff3b00;
+}
+
+.devil-eye-pulse {
+    animation: eyeGlowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes eyeGlowPulse {
+    0% { fill: #ff002b; filter: drop-shadow(0 0 2px #ff002b); }
+    100% { fill: #ffffff; filter: drop-shadow(0 0 8px #ff002b); }
+}
+
+.header-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.header-info h1 {
+    font-size: 1.18rem;
+    font-weight: 900;
+    font-family: 'Cinzel Decorative', 'Orbitron', 'Rajdhani', sans-serif;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-shadow: 0 0 12px rgba(255, 0, 43, 0.9), 0 0 25px rgba(255, 0, 43, 0.5);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-info p {
+    font-size: 0.65rem;
+    color: #ff4d6a;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    display: inline-block;
+    background: rgba(255, 0, 43, 0.16);
+    border: 1px solid rgba(255, 0, 43, 0.4);
+    padding: 1px 8px;
+    border-radius: var(--r-xs);
+    margin-top: 3px;
+}
+
+/* Logout / Sever Link Button */
+.header-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn {
+    background: rgba(255, 0, 43, 0.15);
+    border: 1.5px solid rgba(255, 0, 43, 0.55);
+    border-radius: var(--r-sm);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff2a4b;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 10px rgba(255, 0, 43, 0.3);
+}
+
+.logout-btn:hover, .logout-btn:active {
+    background: var(--devil-blood);
+    color: #ffffff;
+    border-color: #ff3b00;
+    box-shadow: 0 0 20px rgba(255, 0, 43, 0.85);
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA (Scrollable)
+   ========================================================================== */
+.main-content {
+    position: fixed;
+    top: calc(var(--status-height) + var(--safe-top) + 68px);
+    left: 0;
+    right: 0;
+    bottom: calc(var(--nav-height) + var(--safe-bottom));
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+    padding: 14px 14px 28px;
+    scroll-behavior: smooth;
+    max-width: 100vw;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: devilFadeIn 0.25s ease-out;
+}
+
+@keyframes devilFadeIn {
+    0% { opacity: 0; transform: translateY(10px) scale(0.99); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Section Header Row */
+.section-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.section-header-row h2 {
+    font-family: 'Cinzel Decorative', 'Orbitron', 'Rajdhani', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 10px rgba(255, 0, 43, 0.7);
+}
+
+.badge {
+    background: rgba(255, 0, 43, 0.22);
+    border: 1px solid #ff002b;
+    color: #ff4d6a;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 800;
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    border-radius: var(--r-pill);
+    box-shadow: 0 0 8px rgba(255, 0, 43, 0.4);
+}
+
+/* ==========================================================================
+   STATS ROW — Blood Vials
+   ========================================================================== */
+.stats-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.stat-chip {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 11px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+    backdrop-filter: blur(14px);
+}
+
+.stat-chip .stat-glow-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff002b, #ff3b00);
+    box-shadow: 0 0 10px #ff002b;
+}
+
+.stat-chip.stat-green .stat-glow-bar {
+    background: linear-gradient(90deg, #00ff88, #22c55e);
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.stat-chip.stat-red .stat-glow-bar {
+    background: linear-gradient(90deg, #ff002b, #8a0012);
+    box-shadow: 0 0 10px #ff002b;
+}
+
+.stat-value {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(255, 0, 43, 0.5);
+}
+
+.stat-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Inter', sans-serif;
+}
+
+.stat-green .stat-value { color: #00ff88; text-shadow: 0 0 12px rgba(0, 255, 136, 0.6); }
+.stat-red .stat-value { color: #ff2a4b; text-shadow: 0 0 12px rgba(255, 0, 43, 0.6); }
+
+/* ==========================================================================
+   SEARCH BAR — Occult Blood Sight
+   ========================================================================== */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    margin-bottom: 12px;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(14px);
+}
+
+.search-bar:focus-within {
+    border-color: #ff002b;
+    box-shadow: 0 0 18px rgba(255, 0, 43, 0.45), inset 0 0 10px rgba(255, 0, 43, 0.1);
+}
+
+.search-bar svg {
+    flex-shrink: 0;
+    color: #ff3355;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 43, 0.5));
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: none;
+    color: #fff2f4;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-3);
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   FILTER ROW — Demonic Filter Pills
+   ========================================================================== */
+.filter-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.pill {
+    flex: 1;
+    padding: 8px 0;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: rgba(18, 2, 7, 0.75);
+    color: var(--text-2);
+    border-radius: var(--r-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pill:hover {
+    color: #ffffff;
+    border-color: rgba(255, 0, 43, 0.6);
+    background: rgba(40, 4, 15, 0.85);
+}
+
+.pill.active {
+    background: linear-gradient(135deg, #ff002b 0%, #8a0012 100%);
+    color: #ffffff;
+    border-color: #ffaa00;
+    box-shadow: 0 0 15px rgba(255, 0, 43, 0.6);
+    font-weight: 800;
+}
+
+/* ==========================================================================
+   ACTION BUTTONS — Demonic Runner Spells
+   ========================================================================== */
+.action-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 13px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: rgba(22, 2, 8, 0.9);
+    color: #ffd6dc;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.action-btn:hover {
+    border-color: #ff002b;
+    color: #ffffff;
+    box-shadow: 0 0 14px rgba(255, 0, 43, 0.4);
+    transform: translateY(-1px);
+}
+
+.action-primary {
+    background: linear-gradient(135deg, #ff002b 0%, #990014 100%) !important;
+    border-color: #ff3b00 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(255, 0, 43, 0.55) !important;
+}
+
+.action-primary:hover {
+    box-shadow: 0 0 22px rgba(255, 0, 43, 0.85), 0 0 10px #ffaa00 !important;
+}
+
+.action-red {
+    background: rgba(140, 0, 20, 0.35) !important;
+    border-color: rgba(255, 0, 43, 0.6) !important;
+    color: #ff556e !important;
+}
+
+.action-red:hover {
+    background: #ff002b !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 18px rgba(255, 0, 43, 0.75) !important;
+}
+
+/* ==========================================================================
+   DEVICE LIST & CARDS — Demonic Soul Vessels
+   ========================================================================== */
+.device-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.device-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 12px 14px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(14px);
+}
+
+.device-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3.5px;
+    background: #ff002b;
+    box-shadow: 0 0 12px #ff002b;
+    opacity: 0.9;
+    transition: all 0.2s;
+}
+
+.device-card.muted-card::before, .device-card.muted::before {
+    background: #60000a;
+    box-shadow: 0 0 8px #60000a;
+    opacity: 0.5;
+}
+
+.device-card:hover {
+    border-color: rgba(255, 0, 43, 0.75);
+    box-shadow: 0 4px 22px rgba(255, 0, 43, 0.35);
+    transform: translateY(-2px);
+    background: rgba(30, 3, 12, 0.92);
+}
+
+.dc-check, .device-checkbox {
+    width: 17px;
+    height: 17px;
+    accent-color: #ff002b;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.dc-icon, .device-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(255, 0, 43, 0.15);
+    border: 1px solid rgba(255, 0, 43, 0.45);
+    color: #ff2a4b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 8px rgba(255, 0, 43, 0.2);
+}
+
+.dc-body, .device-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dc-id, .device-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.2px;
+}
+
+.dc-model, .device-sub {
+    font-size: 0.68rem;
+    color: #e099a4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.dc-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.status-dot-inline {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+    padding: 2px 7px;
+    border-radius: var(--r-xs);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-dot-inline.online {
+    background: rgba(0, 255, 136, 0.15);
+    color: #00ff88;
+    border: 1px solid rgba(0, 255, 136, 0.45);
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+.status-dot-inline.offline {
+    background: rgba(100, 116, 139, 0.15);
+    color: #a0a0b0;
+    border: 1px solid rgba(100, 116, 139, 0.35);
+}
+
+.mute-badge {
+    background: rgba(255, 0, 43, 0.2);
+    color: #ff3355;
+    border: 1px solid rgba(255, 0, 43, 0.5);
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   SMS LOGS LIST — Dark Blood Scrolls
+   ========================================================================== */
+.sms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sms-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 13px 15px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s;
+    backdrop-filter: blur(14px);
+    position: relative;
+}
+
+.sms-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #ff002b;
+    opacity: 0.7;
+}
+
+.sms-card:hover {
+    border-color: rgba(255, 0, 43, 0.7);
+    box-shadow: 0 4px 20px rgba(255, 0, 43, 0.3);
+}
+
+.sms-sender {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #ff3355;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.sms-time {
+    font-size: 0.65rem;
+    color: var(--text-3);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.sms-body {
+    font-size: 0.82rem;
+    color: #fff0f3;
+    line-height: 1.48;
+    word-break: break-word;
+}
+
+/* ==========================================================================
+   SMS BOMBER — Hellfire Blood Bomber
+   ========================================================================== */
+.bomber-hero {
+    text-align: center;
+    padding: 18px 14px;
+    background: radial-gradient(circle at 50% 25%, rgba(255, 0, 43, 0.25) 0%, rgba(20, 2, 8, 0.85) 75%);
+    border: 1.5px solid rgba(255, 0, 43, 0.5);
+    border-radius: var(--r-md);
+    margin-bottom: 12px;
+    box-shadow: 0 0 30px rgba(255, 0, 43, 0.35), inset 0 0 15px rgba(255, 0, 43, 0.15);
+}
+
+.bomber-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff002b 0%, #8a0012 100%);
+    border: 2px solid #ffaa00;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    box-shadow: 0 0 20px rgba(255, 0, 43, 0.8);
+    animation: bomberIconPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes bomberIconPulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px #ff002b; }
+    100% { transform: scale(1.06); box-shadow: 0 0 25px #ff002b, 0 0 35px #ff3b00; }
+}
+
+.bomber-hero h2 {
+    font-family: 'Cinzel Decorative', 'Orbitron', 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 14px rgba(255, 0, 43, 0.85);
+    margin-bottom: 4px;
+}
+
+.bomber-hero p {
+    font-size: 0.72rem;
+    color: #e2aab3;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.bomber-stats {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.mode-toggle {
+    display: flex;
+    background: rgba(12, 1, 5, 0.85);
+    border-radius: var(--r-xs);
+    padding: 3px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    color: var(--text-2);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: var(--r-xs);
+    transition: all 0.2s;
+}
+
+.mode-btn.active {
+    background: linear-gradient(135deg, #ff002b 0%, #8a0012 100%);
+    color: #ffffff;
+    box-shadow: 0 0 14px rgba(255, 0, 43, 0.6);
+    font-weight: 800;
+}
+
+.form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 16px 14px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(16px);
+}
+
+.form-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #ff3355;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.form-label:first-child {
+    margin-top: 0;
+}
+
+.mobile-input, .mobile-textarea, .mobile-select {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xs);
+    padding: 9px 12px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.mobile-input:focus, .mobile-textarea:focus, .mobile-select:focus {
+    border-color: #ff002b;
+    box-shadow: 0 0 14px rgba(255, 0, 43, 0.5);
+    background: rgba(18, 2, 7, 0.98);
+}
+
+.stepper-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 6px;
+}
+
+.stepper-btn {
+    flex-shrink: 0;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    background: rgba(22, 2, 8, 0.9);
+    color: #ffffff;
+    border-radius: var(--r-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.stepper-btn:hover {
+    border-color: #ff002b;
+    background: rgba(255, 0, 43, 0.25);
+    box-shadow: 0 0 10px rgba(255, 0, 43, 0.4);
+}
+
+.stepper-input {
+    flex: 1;
+    height: 38px;
+    text-align: center;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xs);
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 900;
+    outline: none;
+}
+
+.bomber-device-info {
+    font-size: 0.75rem;
+    color: var(--text-2);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(14, 1, 5, 0.7);
+    padding: 8px 10px;
+    border-radius: var(--r-xs);
+    border: 1px solid rgba(255, 0, 43, 0.2);
+}
+
+.bomber-hint {
+    font-size: 0.65rem;
+    color: var(--text-3);
+}
+
+.sim-toggle {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.sim-btn {
+    flex: 1;
+    padding: 9px 0;
+    border: 1px solid var(--border);
+    background: rgba(18, 2, 7, 0.75);
+    color: var(--text-2);
+    border-radius: var(--r-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+
+.sim-btn.active {
+    background: linear-gradient(135deg, #ff002b 0%, #8a0012 100%);
+    border-color: #ffaa00;
+    color: #ffffff;
+    box-shadow: 0 0 14px rgba(255, 0, 43, 0.6);
+    font-weight: 800;
+}
+
+/* Progress bar */
+.progress-section {
+    margin: 12px 0;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 800;
+    font-family: 'Rajdhani', sans-serif;
+    color: #ff3355;
+    margin-bottom: 4px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(10, 1, 4, 0.9);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 0, 43, 0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff002b, #ff3b00, #ffaa00);
+    box-shadow: 0 0 10px #ff002b;
+    transition: width 0.2s ease;
+}
+
+/* Massive Launch Button */
+.launch-btn {
+    width: 100%;
+    padding: 13px;
+    border: 1.5px solid #ffaa00;
+    border-radius: var(--r-xs);
+    background: linear-gradient(135deg, #ff002b 0%, #b8001a 50%, #4a0009 100%);
+    color: #ffffff;
+    font-family: 'Cinzel Decorative', 'Orbitron', 'Rajdhani', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 0 25px rgba(255, 0, 43, 0.75), inset 0 0 15px rgba(255, 255, 255, 0.15);
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin-top: 14px;
+    animation: launchBtnAura 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes launchBtnAura {
+    0% { box-shadow: 0 0 20px rgba(255, 0, 43, 0.65); }
+    100% { box-shadow: 0 0 32px rgba(255, 0, 43, 0.95), 0 0 15px #ffaa00; }
+}
+
+.launch-btn:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 0 35px rgba(255, 0, 43, 1), 0 0 18px #ffaa00;
+}
+
+.stop-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #ff002b;
+    border-radius: var(--r-xs);
+    background: rgba(255, 0, 43, 0.2);
+    color: #ff3355;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 900;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.stop-btn:hover {
+    background: #ff002b;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 0, 43, 0.8);
+}
+
+.section-divider {
+    text-align: center;
+    margin: 16px 0 10px;
+    position: relative;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 0, 43, 0.3);
+}
+
+.section-divider span {
+    position: relative;
+    background: var(--bg);
+    padding: 0 12px;
+    font-size: 0.68rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 800;
+    color: #ff3355;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bomber-log {
+    max-height: 240px;
+    overflow-y: auto;
+    background: rgba(10, 1, 4, 0.9);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: 10px;
+}
+
+/* ==========================================================================
+   BOTTOM NAVIGATION BAR — Gothic Devil Tabs
+   ========================================================================== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: calc(var(--nav-height) + var(--safe-bottom));
+    padding-bottom: var(--safe-bottom);
+    background: rgba(8, 1, 3, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1.5px solid rgba(255, 0, 43, 0.45);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.8), 0 0 18px rgba(255, 0, 43, 0.18);
+}
+
+.nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 0 4px;
+    border: none;
+    background: none;
+    color: var(--text-3);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.22s;
+    position: relative;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.nav-item svg {
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    stroke: var(--text-3);
+}
+
+.nav-item.active {
+    color: #ffffff;
+}
+
+.nav-item.active svg {
+    stroke: #ff002b;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 43, 0.85));
+    transform: translateY(-2px);
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 28px;
+    height: 3.5px;
+    background: linear-gradient(90deg, #ff002b, #ff3b00);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 12px rgba(255, 0, 43, 0.9);
+}
+
+/* ==========================================================================
+   SERVER SELECTION MODAL — Gates of Hell
+   ========================================================================== */
+.server-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(3, 0, 2, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.server-modal.hidden {
+    display: none;
+}
+
+.server-modal-content {
+    background: rgba(14, 1, 5, 0.96);
+    border: 2px solid #ff002b;
+    border-radius: var(--r-lg);
+    width: 100%;
+    max-width: 390px;
+    padding: 26px 20px;
+    box-shadow: 0 0 50px rgba(255, 0, 43, 0.6), inset 0 0 20px rgba(255, 0, 43, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: devilModalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.devil-pentagram-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15rem;
+    color: rgba(255, 0, 43, 0.04);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.server-modal-content::before {
+    content: "⛧ DEMON CONDUIT // BLOOD FEED GATEWAY ⛧";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #ff002b, #8a0012, #ff002b);
+    color: #ffffff;
+    font-family: 'Cinzel Decorative', 'Orbitron', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 4px 0;
+    letter-spacing: 1.5px;
+}
+
+@keyframes devilModalPop {
+    0% { transform: scale(0.88) translateY(20px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.server-modal-header {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.devil-sigil-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+    animation: sigilGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes sigilGlow {
+    0% { transform: scale(1); filter: drop-shadow(0 0 6px #ff002b); }
+    100% { transform: scale(1.08); filter: drop-shadow(0 0 16px #ff002b); }
+}
+
+.server-modal-header h2 {
+    font-family: 'Cinzel Decorative', 'Orbitron', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(255, 0, 43, 0.9);
+}
+
+.server-modal-header p {
+    font-size: 0.74rem;
+    color: #e2aab3;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.server-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.server-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(22, 2, 8, 0.9);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-sm);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 100%;
+}
+
+.server-btn:hover {
+    border-color: #ff002b;
+    box-shadow: 0 0 20px rgba(255, 0, 43, 0.6), inset 0 0 10px rgba(255, 0, 43, 0.15);
+    transform: translateY(-2px);
+    background: rgba(35, 4, 14, 0.95);
+}
+
+.server-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(255, 0, 43, 0.4);
+}
+
+.icon-blood { background: rgba(255, 0, 43, 0.25); color: #ff002b; border: 1px solid #ff002b; }
+.icon-crimson { background: rgba(255, 59, 0, 0.25); color: #ff3b00; border: 1px solid #ff3b00; }
+.icon-flame { background: rgba(255, 170, 0, 0.25); color: #ffaa00; border: 1px solid #ffaa00; }
+
+.server-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.server-name {
+    font-family: 'Cinzel Decorative', 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.server-sub {
+    font-size: 0.65rem;
+    color: #d18d99;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    margin-top: 1px;
+}
+
+.server-arrow {
+    font-size: 1.2rem;
+    color: #ff3355;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.server-btn:hover .server-arrow {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   DEVICE DETAIL BOTTOM SHEET — Demonic Altar
+   ========================================================================== */
+.sheet-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(3, 0, 2, 0.85);
+    backdrop-filter: blur(14px);
+    display: none;
+}
+
+.sheet-overlay.active {
+    display: block;
+}
+
+.sheet-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 85vh;
+    background: rgba(14, 1, 5, 0.97);
+    border-top: 2.5px solid #ff002b;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    padding: 20px 16px;
+    overflow-y: auto;
+    box-shadow: 0 -8px 45px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 0, 43, 0.4);
+    backdrop-filter: blur(24px);
+}
+
+.sheet-handle {
+    width: 40px;
+    height: 4px;
+    background: #ff002b;
+    box-shadow: 0 0 8px #ff002b;
+    border-radius: 2px;
+    margin: 0 auto 14px;
+}
+
+.sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.sheet-header h2 {
+    font-family: 'Cinzel Decorative', 'Orbitron', 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 10px rgba(255, 0, 43, 0.7);
+}
+
+.sheet-close {
+    background: rgba(255, 0, 43, 0.2);
+    border: 1px solid #ff002b;
+    color: #ff3355;
+    padding: 4px 14px;
+    border-radius: var(--r-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sheet-close:hover {
+    background: #ff002b;
+    color: #ffffff;
+    box-shadow: 0 0 12px #ff002b;
+}
+
+.sheet-device-id {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #ff4d6a;
+    margin-bottom: 12px;
+    background: rgba(255, 0, 43, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 0, 43, 0.35);
+}
+
+.sheet-section {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 0, 43, 0.2);
+}
+
+.sheet-section h3 {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #ff3355;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.sheet-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: calc(var(--nav-height) + 16px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    padding: 9px 18px;
+    background: rgba(14, 1, 5, 0.97);
+    border: 1.5px solid #ff002b;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: var(--r-sm);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 0, 43, 0.7);
+    pointer-events: none;
+    animation: devilToastIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes devilToastIn {
+    0% { opacity: 0; transform: translate(-50%, 15px) scale(0.9); }
+    100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 42px 16px;
+    color: var(--text-3);
+    text-align: center;
+    gap: 8px;
+}
+
+.empty-devil-icon {
+    font-size: 2.8rem;
+    filter: drop-shadow(0 0 12px rgba(255, 0, 43, 0.6));
+    margin-bottom: 4px;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fca5b3;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.empty-state span {
+    font-size: 0.74rem;
+    color: var(--text-3);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.page-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--r-xs);
+    background: rgba(22, 2, 8, 0.9);
+    border: 1px solid var(--border);
+    color: #ff3355;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-btn:not(:disabled):hover {
+    background: #ff002b;
+    color: #ffffff;
+    box-shadow: 0 0 10px #ff002b;
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 800;
+    color: #e2aab3;
+}
